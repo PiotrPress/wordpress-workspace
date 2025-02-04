@@ -1,0 +1,8 @@
+/.idea
+/.htaccess
+/.config
+/wp-config.php
+/composer.lock
+/vendor
+/wp-core
+/wp-content
