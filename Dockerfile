@@ -1,8 +1,9 @@
 FROM php:8.2-apache
 
 RUN a2enmod rewrite
+RUN a2enmod headers
 RUN a2enmod ssl
-RUN a2ensite default-ssl.conf
+RUN a2ensite default-ssl
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
