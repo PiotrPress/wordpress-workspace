@@ -1,6 +1,6 @@
 # WordPress Workspace
 
-This library is [WordPress](https://wordpress.org/) website [Docker](https://www.docker.com/) template which uses [MariaDB](https://mariadb.org/) database and [Apache](https://httpd.apache.org/) web server.
+This library is [WordPress](https://wordpress.org/) development environment based on [Docker](https://www.docker.com/) which uses [Apache](https://httpd.apache.org/) web server, [MariaDB](https://mariadb.org/) database, [PHPMyAdmin](https://www.phpmyadmin.net/), [Composer](https://getcomposer.org/) and [WP-CLI](https://wp-cli.org/).
 
 **NOTE:** This environment is designed for development purposes only and should not be used in production.
 
@@ -9,19 +9,19 @@ This library is [WordPress](https://wordpress.org/) website [Docker](https://www
 1. Build image
 
 ```shell
-$ docker compose build --pull --no-cache
+$ ./bin/build
 ```
 
 2. Run Docker
 
 ```shell
-$ docker compose up -d
+$ ./bin/run
 ```
 
 3. Install dependencies
 
 ```shell
-$ docker compose exec wordpress composer update
+$ ./bin/install
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ $ docker compose exec wordpress composer update
 ### Run
 
 ```shell
-$ docker compose up -d
+$ ./bin/run
 ```
 
 ### View
@@ -39,19 +39,19 @@ $ docker compose up -d
 ### Update
 
 ```shell
-$ docker compose exec wordpress git pull && composer update
+$ ./bin/install
 ```
 
-### Terminal
+### Console
 
 ```shell
-$ docker compose exec wordpress bash
+$ ./bin/console
 ```
 
 ### Database
 
 ```shell
-$ docker compose exec database mariadb
+$ ./bin/database
 ```
 
 ### PHPMyAdmin
@@ -61,7 +61,7 @@ $ docker compose exec database mariadb
 ### Close
 
 ```shell
-$ docker compose down --remove-orphans 
+$ ./bin/close 
 ```
 
 ## Requirements

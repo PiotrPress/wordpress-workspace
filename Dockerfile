@@ -19,6 +19,8 @@ RUN apt-get install -y --no-install-recommends \
     libicu-dev \
     libjpeg-dev \
     libpng-dev \
+    libwebp-dev \
+    libavif-dev \
     libzip-dev
 
 RUN apt-get clean
@@ -33,18 +35,23 @@ RUN docker-php-ext-install \
     zip
 
 RUN	docker-php-ext-configure gd \
-    --with-jpeg
+    --with-jpeg \
+    --with-webp \
+    --with-avif
+
+RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
-RUN chown 1000:1000 /usr/local/bin/wp
+RUN chown www-data:www-data /usr/local/bin/wp
 
-RUN mkdir -p /tmp/composer && chown -R 1000:1000 /tmp/composer
+RUN mkdir -p /tmp/composer && chown www-data:www-data /tmp/composer
 ENV COMPOSER_HOME=/tmp/composer
 
-USER 1000
+USER www-data
+
 RUN composer config -g allow-plugins.piotrpress/wordpress-composer true --quiet --no-interaction
 RUN composer global require piotrpress/wordpress-composer --quiet --no-interaction
 
