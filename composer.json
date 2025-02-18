@@ -1,7 +1,9 @@
 {
     "name": "piotrpress/wordpress-workspace",
     "type": "project",
-    "description": "WordPress Workspace",
+    "license": "MIT",
+    "description": "This library is WordPress development environment based on Docker which uses Apache web server, MariaDB database, PHPMyAdmin, Composer and WP-CLI.",
+    "homepage": "https://github.com/PiotrPress/wordpress-workspace/",
     "authors": [
         {
             "name": "Piotr Niewiadomski",
