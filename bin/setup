@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker compose up -d
+docker compose exec --user www-data:www-data wordpress bash -c "composer update --no-interaction"
+docker compose down --remove-orphans

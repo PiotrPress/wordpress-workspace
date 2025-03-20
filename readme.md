@@ -4,64 +4,32 @@ This library is [WordPress](https://wordpress.org/) development environment base
 
 **NOTE:** This environment is designed for development purposes only and should not be used in production.
 
-## Install
-
-1. Build image
+## Setup
 
 ```shell
-$ ./bin/build
-```
-
-2. Run Docker
-
-```shell
-$ ./bin/run
-```
-
-3. Install dependencies
-
-```shell
-$ ./bin/install
+$ ./bin/setup
 ```
 
 ## Usage
 
-### Run
+### Start Docker
 
 ```shell
-$ ./bin/run
+$ ./bin/start
 ```
 
-### View
+### View Website
 
 [https://localhost](https://localhost)
-
-### Update
-
-```shell
-$ ./bin/install
-```
-
-### Console
-
-```shell
-$ ./bin/console
-```
-
-### Database
-
-```shell
-$ ./bin/database
-```
 
 ### PHPMyAdmin
 
 [http://localhost:8080](http://localhost:8080)
 
-### Close
+### Stop Docker
 
 ```shell
-$ ./bin/close 
+$ ./bin/stop
 ```
 
 ## Requirements

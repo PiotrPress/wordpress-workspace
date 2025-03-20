@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "piotrpress/wordpress-config": "^3.0",
         "piotrpress/wordpress-installer": "^1.0",
         "piotrpress/wordpress-htaccess": "^1.1",
@@ -29,13 +29,11 @@
             "cp vendor/piotrpress/wordpress-htaccess/res/.htaccess ./.htaccess",
             "cp vendor/piotrpress/wordpress-htaccess/res/wp-core/.htaccess wp-core/.htaccess",
             "cp vendor/piotrpress/wordpress-config/res/wp-config.php ./wp-config.php",
-            "cp -n .config.example .config",
+            "cp -n .config.template .config",
             "ln -nfs ../wp-content wp-core/wp-content",
             "touch wp-content/debug.log",
-            "chgrp www-data wp-content/debug.log",
             "mkdir -p wp-content/uploads",
-            "chmod 770 wp-content/uploads",
-            "chgrp www-data wp-content/uploads"
+            "chmod 755 wp-content/uploads"
         ]
     }
 }
