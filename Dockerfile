@@ -52,6 +52,9 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 
 RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/Options\s\+Indexes/Options/' /etc/apache2/apache2.conf
 RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
+RUN sed -i 's#DocumentRoot /var/www/html#DocumentRoot /var/www/html/wp-core#g' /etc/apache2/sites-enabled/000-default.conf
+RUN sed -i 's#DocumentRoot /var/www/html#DocumentRoot /var/www/html/wp-core#g' /etc/apache2/sites-enabled/default-ssl.conf
+
 RUN chown -R www-data:www-data /var/www
 RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 USER www-data
