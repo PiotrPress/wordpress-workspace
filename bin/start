@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")"
 
-docker compose up -d
-docker compose exec --user www-data:www-data wordpress bash
+docker compose -f ../compose.yml up -d --wait

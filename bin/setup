@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")"
 
-docker compose up -d
-docker compose exec --user www-data:www-data wordpress bash -c "composer update --no-interaction"
-docker compose down --remove-orphans
+docker compose -f ../compose.yml run --rm --no-deps -T --user 1000:1000 website composer update --no-interaction

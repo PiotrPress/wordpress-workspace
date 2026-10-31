@@ -1,6 +1,6 @@
 # WordPress Workspace
 
-This library is [WordPress](https://wordpress.org/) development environment based on [Docker](https://www.docker.com/) which uses [Apache](https://httpd.apache.org/) web server, [MariaDB](https://mariadb.org/) database, [PHPMyAdmin](https://www.phpmyadmin.net/), [Composer](https://getcomposer.org/) and [WP-CLI](https://wp-cli.org/).
+This library is [WordPress](https://wordpress.org/) development environment based on [Docker](https://www.docker.com/) which uses [OpenLiteSpeed](https://openlitespeed.org/) web server, [MariaDB](https://mariadb.org/) database and [Composer](https://getcomposer.org/) dependency manager.
 
 **NOTE:** This environment is designed for development purposes only and should not be used in production.
 
@@ -12,21 +12,23 @@ $ ./bin/setup
 
 ## Usage
 
-### Start Docker
+### Start Docker containers
 
 ```shell
 $ ./bin/start
 ```
 
-### View Website
+### View WordPress website
 
 [https://localhost](https://localhost)
 
-### PHPMyAdmin
+### Execute commands
 
-[http://localhost:8080](http://localhost:8080)
+```shell
+$ ./bin/exec <container> <user>
+```
 
-### Stop Docker
+### Stop Docker containers
 
 ```shell
 $ ./bin/stop
@@ -34,8 +36,7 @@ $ ./bin/stop
 
 ## Requirements
 
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
+[Docker](https://www.docker.com/)
 
 ## License
 

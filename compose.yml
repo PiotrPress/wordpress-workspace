@@ -1,16 +1,17 @@
 services:
-  wordpress:
+  website:
     build: .
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443/tcp"
+      - "443:443/udp"
     volumes:
-      - .:/var/www/html
+      - .:/var/www/vhosts/localhost/html
     restart: always
     depends_on:
       - database
   database:
-    image: mariadb:11.1.2-jammy
+    image: mariadb:12.3.3@sha256:d46e102fa8b9b72bfcdeb56f9dd538742092119dc8b11f31fe662605cd234cd9
     ports:
       - 3306:3306
     environment:
@@ -19,18 +20,5 @@ services:
     restart: always
     volumes:
       - database:/var/lib/mysql
-  phpmyadmin:
-    image: phpmyadmin
-    ports:
-      - 8080:80
-    environment:
-      PMA_HOST: database
-      PMA_PORT: 3306
-      PMA_DATABASE: wordpress
-      PMA_USER: root
-      PMA_PASSWORD:
-    restart: always
-    depends_on:
-      - database
 volumes:
   database:

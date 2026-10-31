@@ -1,0 +1,16 @@
+name: Check Composer Format
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+      - develop
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - 'composer.json'
+jobs:
+  check:
+    uses: piotrpress/composer-formatter/.github/workflows/check.yml@63decb4d990e49506e9cd2de127fd7599be504e6 # v1.0.4

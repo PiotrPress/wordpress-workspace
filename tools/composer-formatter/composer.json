@@ -1,0 +1,10 @@
+{
+    "require": {
+        "piotrpress/composer-formatter": "^1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "piotrpress/composer-formatter": true
+        }
+    }
+}

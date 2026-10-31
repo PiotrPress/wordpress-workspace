@@ -5,3 +5,5 @@
 /vendor
 /wp-core
 /wp-content
+/tools/composer-formatter/vendor
+/tools/composer-formatter/composer.lock
